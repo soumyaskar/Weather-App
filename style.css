@@ -1,0 +1,193 @@
+/* ==========================================
+   1. GLOBAL RESET & BASE STYLES
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); /* Smooth, responsive deep weather-blue gradient */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #ffffff;
+}
+
+/* ==========================================
+   2. MAIN CONTAINER LAYOUT (#entire-div)
+   ========================================== */
+#entire-div {
+    background: rgba(255, 255, 255, 0.1); /* Frosted glass transparent effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative; /* Base for inner absolute elements */
+}
+
+/* Top watermark branding attribution */
+#first {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+/* App Main Title */
+#heading {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   3. INPUT FORM ELEMENT STYLING
+   ========================================== */
+#form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+#form label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    align-self: flex-start; /* Aligns text cleanly to the left edge of form */
+    margin-left: 10px;
+}
+
+#location {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Highlight input block when active/focused */
+#location:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Dynamic styling for input placeholder text hint */
+#location::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==========================================
+   4. INTERACTIVE WEATHER ACTION BUTTON
+   ========================================== */
+#btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: #ffffff;
+    color: #1e3c72; /* Contradicting deep blue font color */
+    border: none;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+#btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================
+   5. WEATHER DISPLAY CARD OUTPUT (JavaScript UI)
+   ========================================== */
+.hidden {
+    display: none !important;
+}
+
+#weather-card {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    animation: fadeIn 0.5s ease-out forwards; /* Smoothly fades the container layout into view */
+}
+
+#city-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#weather-desc {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: capitalize;
+}
+
+#temp-display {
+    font-size: 3.8rem;
+    font-weight: 700;
+    margin: 15px 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.weather-details p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.weather-details span {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* ==========================================
+   6. ANIMATION TIMINGS
+   ========================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="entire-div"> 
+        <div id="first">@soumya</div>
+         
+        <div id="heading">Weather App</div>
+
+        <!-- 1. Input Form and Button Container -->
+        <div id="form"> 
+            <form action="#">
+                <label for="location">Enter the location</label>
+                <input type="text" id="location" name="loc" placeholder="e.g., London, Mumbai" autocomplete="off">
+                <!-- Button moved inside the form for keyboard submission compatibility -->
+                <button type="submit" id="btn">Get Weather</button>
+            </form> 
+        </div>
+
+        <!-- 2. Dynamic Weather Data Display Card (Managed by JavaScript) -->
+        <div id="weather-card" class="hidden">
+            <h2 id="city-name">City Name</h2>
+            <div id="weather-desc">Condition</div>
+            <div id="temp-display">--°C</div>
+            
+            <div class="weather-details">
+                <p>Humidity: <span id="humidity-display">--</span>%</p>
+                <p>Wind: <span id="wind-display">--</span> km/h</p>
+            </div>
+        </div>
+    </div> <!-- Close #entire-div -->
+
+    <!-- 3. Connect JavaScript right before the body closes -->
+    <script src="script.js"></script>
+    <script src="config.js"></script>
+</body>
+</html>
